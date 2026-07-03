@@ -366,8 +366,8 @@ const Theme = (function themeModule() {
 
     const now = Date.now();
     if (lastKey === 'g' && (now - lastKeyTime) < 700) {
-      if (e.key.toLowerCase() === 'h') { location.href = '/'; }
-      if (e.key.toLowerCase() === 'd') { location.href = '/dashboard.html'; }
+      if (e.key.toLowerCase() === 'h') { location.href = 'index.html'; }
+      if (e.key.toLowerCase() === 'd') { location.href = 'dashboard.html'; }
     }
     lastKey = e.key.toLowerCase();
     lastKeyTime = now;
@@ -405,7 +405,7 @@ const Theme = (function themeModule() {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').catch(() => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {
         /* offline support degrades gracefully if registration fails */
       });
     });
@@ -618,7 +618,7 @@ const Auth = (function authModule() {
   $('#logoutBtn')?.addEventListener('click', () => {
     Auth.logout();
     toast('Berhasil keluar.', 'success');
-    setTimeout(() => location.href = '/', 500);
+    setTimeout(() => location.href = 'index.html', 500);
   });
 
   /* ---- Notifications (demo/simulated) ---- */
@@ -849,6 +849,6 @@ const Auth = (function authModule() {
     if (!confirm('Ini akan menghapus semua tugas dan akun demo dari perangkat ini. Lanjutkan?')) return;
     Auth.clearAllData();
     toast('Data dihapus. Mengarahkan ke beranda...', 'success');
-    setTimeout(() => location.href = '/', 700);
+    setTimeout(() => location.href = 'index.html', 700);
   });
 })();

@@ -9,21 +9,21 @@
    Bump CACHE_VERSION whenever you change style.css / script.js / HTML so
    returning visitors get the new files instead of a stale cache. */
 
-const CACHE_VERSION = 'orbitly-v1.0.0';
+const CACHE_VERSION = 'orbitly-v1.0.1';
 const APP_SHELL = [
-  '/',
-  '/index.html',
-  '/auth.html',
-  '/dashboard.html',
-  '/404.html',
-  '/offline.html',
-  '/style.css',
-  '/script.js',
-  '/manifest.json',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png',
-  '/assets/icons/apple-touch-icon.png',
-  '/favicon.ico'
+  './',
+  'index.html',
+  'auth.html',
+  'dashboard.html',
+  '404.html',
+  'offline.html',
+  'style.css',
+  'script.js',
+  'manifest.json',
+  'assets/icons/icon-192.png',
+  'assets/icons/icon-512.png',
+  'assets/icons/apple-touch-icon.png',
+  'favicon.ico'
 ];
 
 self.addEventListener('install', (event) => {
@@ -61,7 +61,7 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match('/offline.html'))
+          caches.match(request).then((cached) => cached || caches.match('offline.html'))
         )
     );
     return;
