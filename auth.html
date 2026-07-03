@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masuk atau Daftar — Orbitly</title>
+<meta name="description" content="Masuk atau daftar ke Orbitly untuk mulai mengatur alur kerja timmu.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0b0e1a">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="auth-body">
+
+<div class="aurora-bg" aria-hidden="true">
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+</div>
+
+<div class="auth-wrap">
+  <a href="/" class="brand auth-brand">
+    <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="11" stroke="#8b7cf6" stroke-width="1.6"/><circle cx="14" cy="14" r="6.5" stroke="#f5c56b" stroke-width="2"/><circle cx="14" cy="14" r="2.4" fill="#f5f7ff"/></svg>
+    <span>Orbitly</span>
+  </a>
+
+  <div class="auth-card glass-panel">
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" id="tabLogin" role="tab" aria-selected="true">Masuk</button>
+      <button class="auth-tab" id="tabRegister" role="tab" aria-selected="false">Daftar</button>
+    </div>
+
+    <p class="demo-note">Mode demo: akun tersimpan hanya di perangkat ini (local storage), bukan sistem login production yang aman. Jangan gunakan kata sandi asli.</p>
+
+    <form id="loginForm" class="auth-form" novalidate>
+      <div class="field">
+        <label for="li-email">Email</label>
+        <input type="email" id="li-email" required autocomplete="email">
+        <span class="field-error" data-for="li-email"></span>
+      </div>
+      <div class="field">
+        <label for="li-pass">Kata Sandi</label>
+        <div class="pass-wrap">
+          <input type="password" id="li-pass" required minlength="6" autocomplete="current-password">
+          <button type="button" class="pass-toggle" data-target="li-pass" aria-label="Tampilkan kata sandi">👁</button>
+        </div>
+        <span class="field-error" data-for="li-pass"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block ripple">Masuk</button>
+      <p class="auth-hint">Belum punya akun? <button type="button" class="link-btn" id="goRegister">Daftar di sini</button></p>
+    </form>
+
+    <form id="registerForm" class="auth-form hidden" novalidate>
+      <div class="field">
+        <label for="re-name">Nama</label>
+        <input type="text" id="re-name" required minlength="2" autocomplete="name">
+        <span class="field-error" data-for="re-name"></span>
+      </div>
+      <div class="field">
+        <label for="re-email">Email</label>
+        <input type="email" id="re-email" required autocomplete="email">
+        <span class="field-error" data-for="re-email"></span>
+      </div>
+      <div class="field">
+        <label for="re-pass">Kata Sandi</label>
+        <div class="pass-wrap">
+          <input type="password" id="re-pass" required minlength="6" autocomplete="new-password">
+          <button type="button" class="pass-toggle" data-target="re-pass" aria-label="Tampilkan kata sandi">👁</button>
+        </div>
+        <span class="field-error" data-for="re-pass"></span>
+        <div class="pass-strength" id="passStrength"><span></span></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block ripple">Buat Akun</button>
+      <p class="auth-hint">Sudah punya akun? <button type="button" class="link-btn" id="goLogin">Masuk di sini</button></p>
+    </form>
+  </div>
+
+  <a href="/" class="auth-back">← Kembali ke beranda</a>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

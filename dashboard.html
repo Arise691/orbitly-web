@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard — Orbitly</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0e1a">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="dash-body">
+
+<div class="aurora-bg" aria-hidden="true"><div class="aurora a1"></div><div class="aurora a2"></div></div>
+
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a href="/" class="brand dash-brand">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="11" stroke="#8b7cf6" stroke-width="1.6"/><circle cx="14" cy="14" r="6.5" stroke="#f5c56b" stroke-width="2"/><circle cx="14" cy="14" r="2.4" fill="#f5f7ff"/></svg>
+      <span>Orbitly</span>
+    </a>
+    <nav class="dash-nav" aria-label="Navigasi dashboard">
+      <button class="dash-nav-item active" data-panel="overview"><span>📊</span>Ringkasan</button>
+      <button class="dash-nav-item" data-panel="tasks"><span>🗂️</span>Tugas</button>
+      <button class="dash-nav-item" data-panel="profile"><span>👤</span>Profil</button>
+      <button class="dash-nav-item" data-panel="settings"><span>⚙️</span>Pengaturan</button>
+    </nav>
+    <button class="btn btn-outline btn-block" id="logoutBtn">Keluar</button>
+  </aside>
+
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <button class="hamburger dash-hamburger" id="dashHamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+      <div class="search-box">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <input type="search" id="taskSearch" placeholder="Cari tugas... ( / )" aria-label="Cari tugas">
+      </div>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggleDash" aria-label="Ganti tema">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4V2M12 22v-2M4.93 4.93 3.51 3.51M20.49 20.49l-1.42-1.42M4 12H2M22 12h-2M4.93 19.07l-1.42 1.42M20.49 3.51l-1.42 1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn" aria-label="Notifikasi" aria-haspopup="true" aria-expanded="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9a6 6 0 1 1 12 0c0 3.2 1 5 1.5 6H4.5C5 14 6 12.2 6 9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="notif-dot" id="notifDot" hidden></span>
+          </button>
+          <div class="notif-panel glass-panel" id="notifPanel" hidden></div>
+        </div>
+        <div class="user-chip" id="userChip">
+          <span class="user-avatar" id="userAvatar">?</span>
+          <span id="userChipName">Tamu</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-content">
+
+      <!-- OVERVIEW -->
+      <section class="dash-panel active" id="panel-overview">
+        <div class="panel-head">
+          <h1>Selamat datang kembali, <span id="greetName">Tamu</span>.</h1>
+          <p>Berikut ringkasan orbit kerjamu hari ini.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card glass-panel"><span class="kpi-label">Tugas Aktif</span><span class="kpi-value" id="kpiActive">0</span></div>
+          <div class="kpi-card glass-panel"><span class="kpi-label">Selesai Minggu Ini</span><span class="kpi-value" id="kpiDone">0</span></div>
+          <div class="kpi-card glass-panel"><span class="kpi-label">Tenggat Mendekat</span><span class="kpi-value" id="kpiDue">0</span></div>
+          <div class="kpi-card glass-panel"><span class="kpi-label">Skor Produktivitas</span><span class="kpi-value" id="kpiScore">0%</span></div>
+        </div>
+
+        <div class="chart-card glass-panel">
+          <div class="chart-head">
+            <h3>Tugas selesai — 7 hari terakhir</h3>
+          </div>
+          <svg id="lineChart" viewBox="0 0 560 200" class="line-chart" role="img" aria-label="Grafik tugas selesai 7 hari terakhir"></svg>
+        </div>
+      </section>
+
+      <!-- TASKS -->
+      <section class="dash-panel" id="panel-tasks">
+        <div class="panel-head">
+          <h1>Tugas</h1>
+          <p>Kelola dan filter semua tugasmu.</p>
+        </div>
+
+        <div class="task-toolbar">
+          <div class="filter-chips" id="filterChips" role="group" aria-label="Filter status tugas">
+            <button class="chip active" data-filter="all">Semua</button>
+            <button class="chip" data-filter="todo">Belum Dikerjakan</button>
+            <button class="chip" data-filter="doing">Berjalan</button>
+            <button class="chip" data-filter="done">Selesai</button>
+          </div>
+          <form class="add-task-form" id="addTaskForm" novalidate>
+            <input type="text" id="newTaskInput" placeholder="Tambah tugas baru..." maxlength="120" required aria-label="Nama tugas baru">
+            <button type="submit" class="btn btn-primary ripple">Tambah</button>
+          </form>
+        </div>
+
+        <ul class="task-list" id="taskList"></ul>
+        <p class="empty-state" id="taskEmptyState" hidden>Tidak ada tugas yang cocok. Coba ubah pencarian atau filter.</p>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="dash-panel" id="panel-profile">
+        <div class="panel-head">
+          <h1>Profil</h1>
+          <p>Informasi ini hanya tersimpan di perangkatmu (mode demo).</p>
+        </div>
+        <form class="settings-form glass-panel" id="profileForm" novalidate>
+          <div class="field">
+            <label for="pf-name">Nama Lengkap</label>
+            <input type="text" id="pf-name" maxlength="60" required>
+          </div>
+          <div class="field">
+            <label for="pf-email">Email</label>
+            <input type="email" id="pf-email" maxlength="120" required disabled>
+          </div>
+          <div class="field">
+            <label for="pf-role">Peran</label>
+            <select id="pf-role">
+              <option value="member">Anggota</option>
+              <option value="lead">Ketua Tim</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary ripple">Simpan Profil</button>
+        </form>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="dash-panel" id="panel-settings">
+        <div class="panel-head">
+          <h1>Pengaturan</h1>
+          <p>Sesuaikan pengalaman Orbitly-mu.</p>
+        </div>
+        <div class="settings-form glass-panel">
+          <div class="setting-row">
+            <div><strong>Tema Gelap</strong><p>Ganti tampilan gelap/terang.</p></div>
+            <label class="switch"><input type="checkbox" id="settingDarkMode"><span class="slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div><strong>Notifikasi Email</strong><p>Simulasi pengaturan notifikasi (demo).</p></div>
+            <label class="switch"><input type="checkbox" id="settingEmailNotif" checked><span class="slider"></span></label>
+          </div>
+          <div class="setting-row">
+            <div><strong>Pintasan Keyboard</strong><p>Aktifkan navigasi cepat dengan keyboard.</p></div>
+            <label class="switch"><input type="checkbox" id="settingShortcuts" checked><span class="slider"></span></label>
+          </div>
+          <div class="setting-row danger">
+            <div><strong>Hapus Semua Data</strong><p>Menghapus semua tugas dan akun demo dari perangkat ini.</p></div>
+            <button class="btn btn-danger" id="clearDataBtn">Hapus Data</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+<script src="/script.js" defer></script>
+</body>
+</html>

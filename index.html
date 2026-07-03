@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orbitly — Automate your workflow. Orbit your goals.</title>
+<meta name="description" content="Orbitly membantu tim kecil mengotomatiskan tugas berulang dan melacak progres dalam satu ruang kerja yang cepat, rapi, dan tanpa drama.">
+<meta name="keywords" content="otomatisasi workflow, produktivitas tim, saas indonesia, dashboard kerja, orbitly">
+<meta name="author" content="Orbitly">
+<meta name="theme-color" content="#0b0e1a">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://orbitly.example.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Orbitly — Automate your workflow. Orbit your goals.">
+<meta property="og:description" content="Otomatiskan tugas berulang timmu dan lacak progres dalam satu ruang kerja yang cepat dan rapi.">
+<meta property="og:image" content="/assets/images/og-image.png">
+<meta property="og:url" content="https://orbitly.example.com/">
+<meta property="og:site_name" content="Orbitly">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orbitly — Automate your workflow. Orbit your goals.">
+<meta name="twitter:description" content="Otomatiskan tugas berulang timmu dan lacak progres dalam satu ruang kerja yang cepat dan rapi.">
+<meta name="twitter:image" content="/assets/images/og-image.png">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Orbitly",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Orbitly membantu tim kecil mengotomatiskan tugas berulang dan melacak progres dalam satu ruang kerja.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Lompat ke konten utama</a>
+
+<!-- Loading Screen -->
+<div id="loading-screen" aria-hidden="true">
+  <div class="orbit-loader">
+    <span class="orbit-ring"></span>
+    <span class="orbit-dot"></span>
+  </div>
+</div>
+
+<div class="aurora-bg" aria-hidden="true">
+  <div class="aurora a1"></div>
+  <div class="aurora a2"></div>
+  <div class="aurora a3"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- Navbar -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner container">
+    <a href="/" class="brand" aria-label="Orbitly beranda">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="11" stroke="#8b7cf6" stroke-width="1.6"/>
+        <circle cx="14" cy="14" r="6.5" stroke="#f5c56b" stroke-width="2"/>
+        <circle cx="14" cy="14" r="2.4" fill="#f5f7ff"/>
+      </svg>
+      <span>Orbitly</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#fitur">Fitur</a>
+      <a href="#harga">Harga</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#blog">Blog</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Ganti tema gelap/terang" title="Ganti tema">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4V2M12 22v-2M4.93 4.93 3.51 3.51M20.49 20.49l-1.42-1.42M4 12H2M22 12h-2M4.93 19.07l-1.42 1.42M20.49 3.51l-1.42 1.42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/></svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <a href="auth.html" class="btn btn-ghost" data-nav-hide-if-auth>Masuk</a>
+      <a href="auth.html?mode=register" class="btn btn-primary" data-nav-hide-if-auth>
+        <span>Mulai Gratis</span>
+      </a>
+      <a href="dashboard.html" class="btn btn-primary" data-nav-show-if-auth hidden>Dashboard</a>
+      <button class="hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Diluncurkan untuk tim kecil yang bergerak cepat</p>
+      <h1>Rapikan kekacauan kerja timmu <span class="text-gradient">dalam satu orbit</span>.</h1>
+      <p class="hero-sub">Orbitly menyatukan tugas, otomatisasi, dan progres tim dalam satu ruang kerja yang cepat dibuka dan enak dilihat — tanpa rapat tambahan untuk menjelaskan cara pakainya.</p>
+      <div class="hero-actions">
+        <a href="auth.html?mode=register" class="btn btn-primary btn-lg ripple">Coba Gratis Sekarang</a>
+        <button class="btn btn-outline btn-lg ripple" id="watchDemoBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7-11-7Z" fill="currentColor"/></svg>
+          Lihat Demo
+        </button>
+      </div>
+      <div class="hero-trust">
+        <span>Dipercaya oleh tim di 20+ negara</span>
+        <div class="trust-avatars" aria-hidden="true">
+          <span style="background:#8b7cf6"></span>
+          <span style="background:#f5c56b"></span>
+          <span style="background:#5ad6c0"></span>
+          <span style="background:#e0679a"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" aria-hidden="true">
+      <div class="orbit-system">
+        <div class="orbit-track t1"><div class="orbit-node n1">📌</div></div>
+        <div class="orbit-track t2"><div class="orbit-node n2">✅</div></div>
+        <div class="orbit-track t3"><div class="orbit-node n3">⚡</div></div>
+        <div class="orbit-core glass-panel">
+          <span class="orbit-core-value" id="liveStat">128</span>
+          <span class="orbit-core-label">tugas selesai hari ini</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP -->
+  <section class="logo-strip container reveal" aria-label="Digunakan oleh berbagai tim">
+    <span>NEBULA CO.</span><span>ARC STUDIO</span><span>PIXELFORGE</span><span>KANVAS.ID</span><span>LOOPWORKS</span><span>HALO LABS</span>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats container reveal">
+    <div class="stat-card glass-panel">
+      <span class="stat-num" data-count="12400">0</span>
+      <span class="stat-label">Tugas diotomatisasi / bulan</span>
+    </div>
+    <div class="stat-card glass-panel">
+      <span class="stat-num" data-count="98">0</span>
+      <span class="stat-label">% waktu aktif tanpa gangguan</span>
+    </div>
+    <div class="stat-card glass-panel">
+      <span class="stat-num" data-count="340">0</span>
+      <span class="stat-label">Tim aktif menggunakan Orbitly</span>
+    </div>
+    <div class="stat-card glass-panel">
+      <span class="stat-num" data-count="4">0</span>
+      <span class="stat-label">Menit rata-rata onboarding</span>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="fitur">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Fitur</p>
+        <h2>Semua yang tim kecil butuhkan, tidak lebih tidak kurang.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#8b7cf6">🗂️</div>
+          <h3>Papan Tugas Cerdas</h3>
+          <p>Susun tugas dalam papan yang otomatis mengurutkan prioritas berdasarkan tenggat dan beban kerja anggota tim.</p>
+        </article>
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#f5c56b">⚡</div>
+          <h3>Otomatisasi Alur Kerja</h3>
+          <p>Buat aturan "jika ini maka itu" tanpa kode. Pindahkan kartu, kirim notifikasi, dan perbarui status secara otomatis.</p>
+        </article>
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#5ad6c0">📊</div>
+          <h3>Statistik Real-time</h3>
+          <p>Pantau kecepatan tim, beban kerja, dan tren penyelesaian tugas lewat grafik yang diperbarui langsung.</p>
+        </article>
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#e0679a">🔔</div>
+          <h3>Notifikasi Pintar</h3>
+          <p>Hanya diberi tahu untuk hal yang penting bagimu — bukan setiap perubahan kecil di seluruh ruang kerja.</p>
+        </article>
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#8b7cf6">🔒</div>
+          <h3>Privasi Milikmu</h3>
+          <p>Data tersimpan langsung di perangkatmu untuk mode demo, dan bisa disinkronkan aman saat kamu siap naik level.</p>
+        </article>
+        <article class="feature-card glass-panel reveal">
+          <div class="feature-icon" style="--c:#f5c56b">📱</div>
+          <h3>Bekerja Offline</h3>
+          <p>Install sebagai aplikasi dan tetap produktif meski koneksi internetmu putus di tengah jalan.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="galeri">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tampilan</p>
+        <h2>Dirancang untuk enak dipandang setiap hari.</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item glass-panel reveal span-2">
+          <div class="gallery-mock mock-board" aria-hidden="true">
+            <div class="mock-col"><span class="mock-chip" style="background:#8b7cf6"></span><span class="mock-line"></span><span class="mock-line short"></span></div>
+            <div class="mock-col"><span class="mock-chip" style="background:#f5c56b"></span><span class="mock-line"></span><span class="mock-line short"></span></div>
+            <div class="mock-col"><span class="mock-chip" style="background:#5ad6c0"></span><span class="mock-line"></span></div>
+          </div>
+          <figcaption>Papan tugas dengan drag &amp; drop</figcaption>
+        </figure>
+        <figure class="gallery-item glass-panel reveal">
+          <div class="gallery-mock mock-chart" aria-hidden="true">
+            <span style="height:40%"></span><span style="height:65%"></span><span style="height:50%"></span><span style="height:85%"></span><span style="height:70%"></span>
+          </div>
+          <figcaption>Statistik progres mingguan</figcaption>
+        </figure>
+        <figure class="gallery-item glass-panel reveal">
+          <div class="gallery-mock mock-list" aria-hidden="true">
+            <span class="mock-row"></span><span class="mock-row"></span><span class="mock-row"></span>
+          </div>
+          <figcaption>Notifikasi yang ringkas</figcaption>
+        </figure>
+        <figure class="gallery-item glass-panel reveal span-2">
+          <div class="gallery-mock mock-profile" aria-hidden="true">
+            <span class="mock-avatar"></span>
+            <div><span class="mock-line"></span><span class="mock-line short"></span></div>
+          </div>
+          <figcaption>Profil &amp; pengaturan tim</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="harga">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Harga</p>
+        <h2>Mulai gratis, naik level saat timmu berkembang.</h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card glass-panel reveal">
+          <h3>Starter</h3>
+          <p class="price"><span>Rp0</span>/bulan</p>
+          <p class="price-desc">Untuk individu dan proyek pribadi.</p>
+          <ul class="price-list">
+            <li>Papan tugas tanpa batas</li>
+            <li>1 anggota tim</li>
+            <li>Statistik dasar</li>
+            <li>Mode offline</li>
+          </ul>
+          <a href="auth.html?mode=register" class="btn btn-outline btn-block">Mulai Gratis</a>
+        </div>
+        <div class="price-card glass-panel price-featured reveal">
+          <span class="price-badge">Paling Populer</span>
+          <h3>Tim</h3>
+          <p class="price"><span>Rp99rb</span>/bulan</p>
+          <p class="price-desc">Untuk tim kecil yang mulai bertumbuh.</p>
+          <ul class="price-list">
+            <li>Semua fitur Starter</li>
+            <li>Hingga 10 anggota tim</li>
+            <li>Otomatisasi alur kerja</li>
+            <li>Statistik lanjutan</li>
+            <li>Dukungan prioritas</li>
+          </ul>
+          <a href="auth.html?mode=register" class="btn btn-primary btn-block">Pilih Tim</a>
+        </div>
+        <div class="price-card glass-panel reveal">
+          <h3>Perusahaan</h3>
+          <p class="price"><span>Kustom</span></p>
+          <p class="price-desc">Untuk organisasi dengan kebutuhan khusus.</p>
+          <ul class="price-list">
+            <li>Semua fitur Tim</li>
+            <li>Anggota tim tanpa batas</li>
+            <li>SSO &amp; kontrol akses</li>
+            <li>Manajer akun khusus</li>
+          </ul>
+          <a href="#kontak" class="btn btn-outline btn-block">Hubungi Kami</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimoni">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Testimoni</p>
+        <h2>Kata tim yang sudah mencoba.</h2>
+      </div>
+      <div class="testimonial-track reveal">
+        <div class="testimonial-card glass-panel">
+          <p>"Kami berhenti pakai 3 aplikasi berbeda cuma untuk lacak progres. Sekarang semua di satu tempat."</p>
+          <div class="testimonial-author"><span class="mock-avatar" style="background:#8b7cf6"></span><div><strong>Rani A.</strong><span>Lead Produk, Nebula Co.</span></div></div>
+        </div>
+        <div class="testimonial-card glass-panel">
+          <p>"Onboarding tim baru cuma butuh 4 menit. Itu klaim yang jarang benar-benar akurat, tapi ini akurat."</p>
+          <div class="testimonial-author"><span class="mock-avatar" style="background:#f5c56b"></span><div><strong>Dimas P.</strong><span>Founder, Arc Studio</span></div></div>
+        </div>
+        <div class="testimonial-card glass-panel">
+          <p>"Otomatisasi alur kerja menghemat kira-kira 5 jam kerja manual per minggu untuk tim kami."</p>
+          <div class="testimonial-author"><span class="mock-avatar" style="background:#5ad6c0"></span><div><strong>Salma H.</strong><span>Ops Manager, Loopworks</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Blog</p>
+        <h2>Catatan seputar kerja tim yang lebih tenang.</h2>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card glass-panel reveal">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#8b7cf6,#4b3d99)"></div>
+          <span class="blog-tag">Produktivitas</span>
+          <h3>5 tanda alur kerja timmu butuh dirapikan</h3>
+          <p>Rapat yang membengkak dan status tugas yang tidak jelas biasanya adalah gejala, bukan penyebab utama.</p>
+          <a href="#" class="blog-link">Baca selengkapnya →</a>
+        </article>
+        <article class="blog-card glass-panel reveal">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#f5c56b,#a97c2b)"></div>
+          <span class="blog-tag">Otomatisasi</span>
+          <h3>Mulai otomatisasi dari tugas paling membosankan</h3>
+          <p>Cara memilih tugas berulang pertama yang layak diotomatiskan sebelum semuanya diotak-atik sekaligus.</p>
+          <a href="#" class="blog-link">Baca selengkapnya →</a>
+        </article>
+        <article class="blog-card glass-panel reveal">
+          <div class="blog-thumb" style="background:linear-gradient(135deg,#5ad6c0,#1f7f6e)"></div>
+          <span class="blog-tag">Tim Jarak Jauh</span>
+          <h3>Menjaga tim tetap selaras tanpa rapat harian</h3>
+          <p>Ritme async yang membuat semua orang tahu progres tanpa harus menunggu giliran bicara.</p>
+          <a href="#" class="blog-link">Baca selengkapnya →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2>Pertanyaan yang sering ditanyakan.</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item glass-panel">
+          <button class="faq-question" aria-expanded="false">
+            Apakah data saya aman?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-answer"><p>Pada mode demo ini, data tersimpan langsung di perangkatmu (local storage) dan tidak dikirim ke server mana pun. Cocok untuk mencoba alur kerja sebelum berlangganan versi penuh.</p></div>
+        </div>
+        <div class="faq-item glass-panel">
+          <button class="faq-question" aria-expanded="false">
+            Apakah saya perlu kartu kredit untuk mencoba?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-answer"><p>Tidak. Paket Starter gratis selamanya dan tidak membutuhkan kartu kredit.</p></div>
+        </div>
+        <div class="faq-item glass-panel">
+          <button class="faq-question" aria-expanded="false">
+            Bisakah saya menggunakan Orbitly tanpa internet?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-answer"><p>Ya. Setelah kamu buka Orbitly sekali dan menginstalnya sebagai aplikasi, halaman utama dan dashboard tetap bisa dibuka dalam mode offline.</p></div>
+        </div>
+        <div class="faq-item glass-panel">
+          <button class="faq-question" aria-expanded="false">
+            Bagaimana cara membatalkan langganan?
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-answer"><p>Kamu bisa membatalkan kapan saja dari halaman Pengaturan tanpa biaya tersembunyi atau syarat minimal langganan.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="kontak">
+    <div class="container">
+      <div class="contact-wrap glass-panel reveal">
+        <div class="contact-copy">
+          <p class="eyebrow">Kontak</p>
+          <h2>Ada pertanyaan? Kirim pesan.</h2>
+          <p>Kami biasanya membalas dalam 1 hari kerja.</p>
+        </div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cf-name">Nama</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required minlength="2" maxlength="80">
+            <span class="field-error" data-for="cf-name"></span>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="120">
+            <span class="field-error" data-for="cf-email"></span>
+          </div>
+          <div class="field">
+            <label for="cf-message">Pesan</label>
+            <textarea id="cf-message" name="message" rows="4" required minlength="10" maxlength="600"></textarea>
+            <span class="field-error" data-for="cf-message"></span>
+          </div>
+          <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" class="btn btn-primary btn-block ripple">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="brand">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="11" stroke="#8b7cf6" stroke-width="1.6"/><circle cx="14" cy="14" r="6.5" stroke="#f5c56b" stroke-width="2"/><circle cx="14" cy="14" r="2.4" fill="#f5f7ff"/></svg>
+        <span>Orbitly</span>
+      </a>
+      <p>Automate your workflow. Orbit your goals.</p>
+      <div class="share-row">
+        <button class="icon-btn" id="shareBtn" aria-label="Bagikan halaman ini">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="19" r="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.2 10.9 15.8 6.6M8.2 13.1l7.6 4.3" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <button class="icon-btn" id="copyLinkBtn" aria-label="Salin tautan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M5 15V6a1 1 0 0 1 1-1h9" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <button class="icon-btn" id="installBtn" hidden aria-label="Install aplikasi">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Produk</h4>
+      <a href="#fitur">Fitur</a>
+      <a href="#harga">Harga</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="footer-col">
+      <h4>Perusahaan</h4>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#blog">Blog</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <div class="footer-col">
+      <h4>Akun</h4>
+      <a href="auth.html">Masuk</a>
+      <a href="auth.html?mode=register">Daftar</a>
+      <a href="dashboard.html#pengaturan">Pengaturan</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Orbitly. Semua hak dilindungi.</span>
+    <span>Dibuat dengan HTML, CSS &amp; JavaScript murni.</span>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+<div class="kbd-hint" id="kbdHint">
+  <kbd>/</kbd> cari · <kbd>G</kbd>+<kbd>H</kbd> beranda · <kbd>Esc</kbd> tutup
+</div>
+
+<script src="/script.js" defer></script>
+</body>
+</html>
